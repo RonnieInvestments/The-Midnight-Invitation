@@ -3,7 +3,7 @@ class Card():
     def __init__(self, suit, rank):
         
         accepted_ranks = "A","K","Q","J","10","9","8","7","6","5","4","3","2"
-        accepted_suits = "HEART","DIAMOND","SPADE","CLUBS"
+        accepted_suits = "H","D","S","C"
         
         if not isinstance(suit, str):
             raise TypeError(f"Suit expected to be a string. You got {type(suit).__name__}")

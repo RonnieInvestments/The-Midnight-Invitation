@@ -4,27 +4,34 @@ import random
 class Deck():
 
     def __init__(self):
+        self.deck = []
+        self.build_deck()
+
+    def build_deck(self):
         ranks = Card.accepted_ranks
         suits = Card.accepted_suits
-        deck = []
+        self.deck = []
 
         for rank in ranks:
             for suit in suits:
                 print("Rank:", rank)
                 print("Suit:", suit)
                 print("------------")
+            
+            self.deck.append(Card(suit, rank))
 
-        self.deck = deck
-
+    # Shuffle idea        
     def shuffle(self):
         new_deck = []
         deck = self.deck
 
-        while True:
+        while len(deck)>0:
+            '''
             if len(deck) == 1:
                 card = deck[0]
                 new_deck.append(card)
                 break
+            '''
 
             n = random.randint(0, len(deck)-1)
 
@@ -39,7 +46,18 @@ class Deck():
             card.print_card()
             print("----")
         self.deck = new_deck
+
+    # Card dealing
+    def give_card(self):
+
+        if len(self.deck) == 0:
+            raise Exception("Deck is empty")
+        # take a card from the end of a deck and give out
+        top_card = self.deck[0]
+        self.deck.pop(0)
+        return top_card
     
+    # Debug helpers
     def print_deck(self):
         deck = self.deck
         print("Deck size is", len(deck))
@@ -59,12 +77,12 @@ class Deck():
         self.deck.append(top_card)
         self.print_deck()
 
-    def give_card(self):
-        # take a card from the end of a deck and give out
-        top_card = self.deck[0]
-        self.deck.pop(0)
-        return top_card
+    def reset(self):
+        self.build_deck()
 
+    
+# Test block
+'''
 if __name__ == "__main__":
     d1=Deck()
     d1.shuffle()
@@ -73,3 +91,4 @@ if __name__ == "__main__":
     print("The given card is")
     card.print_card()
     d1.print_deck()
+'''

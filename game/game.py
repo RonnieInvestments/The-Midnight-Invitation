@@ -4,7 +4,10 @@ from player import Player
 class Game():
 
     def __init__(self):
+
         self.main_pot = 0
+
+        # Deck setup
         deck = Deck()
         deck.shuffle()
         deck.shuffle()
@@ -14,7 +17,7 @@ class Game():
         self.human = Player(
             type="human",
             cards=human_cards,
-            total_amount_bet=0,
+            amount=0,
             name="Ronnie",
             amount=2000
         )
@@ -22,7 +25,7 @@ class Game():
         self.pc = Player(
             type="pc",
             cards=pc_cards,
-            total_amount_bet=0,
+            amount=0,
             name="pc",
             amount=2000
         )
@@ -40,9 +43,22 @@ class Game():
             self._turn=player
         else:
             raise ValueError("The turn must be assigned to a player object")
+        
+    # Debug/ Display
+    def show_hands(self):
+        print("\n---Human Hand---")
+
+        for card in self.human.cards:
+            print(card)
+
+    def show_deck(self):
+        print("\n---Deck---")
+        self.deck.print_deck()
 
 if __name__ == "__main__":
     game = Game()
+
+    '''
     game.deck.print_deck()
     print("This is the deck")
     print("PC cards")
@@ -53,3 +69,9 @@ if __name__ == "__main__":
     print("Human cards")
     game.human.cards[0].print_card()
     game.human.cards[1].print_card()
+    '''
+
+    game.show_deck()
+    game.show_hands()
+
+    print("\nMain pot:", game.main_pot)

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@prisma/client": "^7.7.0",
+    "dotenv": "^17.4.2"
+  },
+  "name": "the-midnight-invitation",
+  "version": "1.0.0",
+  "description": "Texas Hold'm Poker Game",
+  "main": "index.js",
+  "devDependencies": {
+    "prisma": "^7.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonnieInvestments/The-Midnight-Invitation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RonnieInvestments/The-Midnight-Invitation/issues"
+  },
+  "homepage": "https://github.com/RonnieInvestments/The-Midnight-Invitation#readme"
+}
